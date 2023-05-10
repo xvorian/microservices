@@ -7,5 +7,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AddressRepository extends JpaRepository<Address, Integer> {
+    public Address getByAddress(String address);
 
+    public Address getByDistrict(String district);
+
+    public Address getByCity(int cityId);
 }
