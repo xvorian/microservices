@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/actor/")
+@RequestMapping("/actor")
 @ApiModel(description = "This Table holds the Actor details....")
 public class ActorController {
     @Autowired
@@ -23,15 +23,15 @@ public class ActorController {
         return services.findAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @ApiOperation(value="Actor Id", notes="Provides Actor based on Actor Id", response = Actor.class)
     public Actor getById(@PathVariable(value = "id") Integer id) {
         return services.findById(id);
     }
 
-    @GetMapping(value="?firstname={fname}&lastname={lname}")
-    public Actor getByName(@RequestParam(value = "fname") String firstName, @RequestParam(value = "lname") String lastName) {
-        return new Actor();
+    @GetMapping(value="/byname")
+    public Actor getByFirstName(@RequestParam(value = "name") String fname) {
+        return services.findByFirstName(fname).get();
     }
 
     @PostMapping
