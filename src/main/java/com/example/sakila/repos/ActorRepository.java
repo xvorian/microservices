@@ -13,7 +13,7 @@ import java.util.Optional;
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Integer> {
 
-    @Query("SELECT a FROM Actor a WHERE a.firstName = ?1")
+    @Query("SELECT a FROM Actor a WHERE a.firstName =:fName")
     Optional<Actor> findActorByFirstName(String fName);
 
     @Query("SELECT a FROM Actor a WHERE a.lastName = ?1")

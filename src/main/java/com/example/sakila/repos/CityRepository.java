@@ -13,4 +13,7 @@ public interface CityRepository extends JpaRepository<City, Integer> {
 
     @Query(value = "SELECT * from City WHERE countryId=:countries", nativeQuery = true)
     public List<City> getCitiesInCountries(String countries);
+
+    @Query("FROM City c WHERE c.countryId=:countryId")
+    public List<City> getCitiesByCountry(int countryId);
 }

@@ -17,4 +17,10 @@ public interface FilmRepository extends JpaRepository<Film, Integer> {
 
     @Query("SELECT  total(replacementCost), min(rentalDuration), count(length), avg(rentalRate) from Film")
     public Object fetchAggregateData();
+
+    @Query("FROM Film WHERE title=:title")
+    public Film getFilmByTitle(String title);
+
+    @Query("FROM Film WHERE releaseYear=:year")
+    public List<Film> getByReleaseYear(int year);
 }

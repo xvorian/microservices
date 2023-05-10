@@ -13,4 +13,7 @@ public interface CountryRepository extends JpaRepository<Country, Integer> {
 
     @Query("FROM Country WHERE country in (:name, :name1,:name2) order by country desc")
     public List<Country> getCountriesByName(String name, String name1, String name3);
+
+    @Query("FROM Country WHERE country=:name")
+    public Country getByName(String name);
 }

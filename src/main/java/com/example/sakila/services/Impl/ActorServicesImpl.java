@@ -65,7 +65,27 @@ public class ActorServicesImpl implements ActorServices {
     @Override
     @Transactional
     public Integer updateActorName(Actor actor) {
-        return repo.updateActorName(actor.getActorId(),actor.getFirstName());
+        return repo.updateActorName(actor.getActorId(), actor.getFirstName());
+    }
+
+    @Override
+    public Optional<Actor> findActorByLastName(String lName) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Actor findByName(String firstName, String lastName) {
+        return null;
+    }
+
+    @Override
+    public Integer updateActorName(Integer id, String firstname) {
+        return null;
+    }
+
+    @Override
+    public Optional<Actor> findActorByFirstName(String fName) {
+        return repo.findActorByFirstName(fName);
     }
 
     @Override
