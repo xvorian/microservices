@@ -2,7 +2,7 @@ package com.example.sakila.controller;
 
 import com.example.sakila.model.Actor;
 import com.example.sakila.helper.ResponseHandler;
-import com.example.sakila.services.ActorServices;
+import com.example.sakila.services.interfaces.ActorServices;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

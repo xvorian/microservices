@@ -1,4 +1,4 @@
-package com.example.sakila.services;
+package com.example.sakila.services.interfaces;
 
 import com.example.sakila.model.Staff;
 

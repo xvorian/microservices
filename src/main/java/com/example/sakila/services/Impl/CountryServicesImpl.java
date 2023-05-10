@@ -1,7 +1,7 @@
 package com.example.sakila.services.Impl;
 
 import com.example.sakila.model.Country;
-import com.example.sakila.services.CountryServices;
+import com.example.sakila.services.interfaces.CountryServices;
 
 import java.util.List;
 

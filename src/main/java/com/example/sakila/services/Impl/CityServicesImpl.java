@@ -1,7 +1,7 @@
 package com.example.sakila.services.Impl;
 
 import com.example.sakila.model.City;
-import com.example.sakila.services.CityServices;
+import com.example.sakila.services.interfaces.CityServices;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

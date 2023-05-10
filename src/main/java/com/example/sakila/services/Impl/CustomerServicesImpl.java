@@ -1,7 +1,7 @@
 package com.example.sakila.services.Impl;
 
 import com.example.sakila.model.Customer;
-import com.example.sakila.services.CustomerServices;
+import com.example.sakila.services.interfaces.CustomerServices;
 
 import java.util.List;
 

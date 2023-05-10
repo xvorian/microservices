@@ -3,10 +3,9 @@ package com.example.sakila.services.Impl;
 import com.example.sakila.exception.ResourceNotFoundCustomException;
 import com.example.sakila.model.Actor;
 import com.example.sakila.repos.ActorRepository;
-import com.example.sakila.services.ActorServices;
+import com.example.sakila.services.interfaces.ActorServices;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

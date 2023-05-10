@@ -1,7 +1,7 @@
 package com.example.sakila.services.Impl;
 
 import com.example.sakila.model.Rental;
-import com.example.sakila.services.RentalServices;
+import com.example.sakila.services.interfaces.RentalServices;
 
 import java.util.List;
 

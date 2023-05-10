@@ -1,7 +1,7 @@
 package com.example.sakila.services.Impl;
 
 import com.example.sakila.model.Film;
-import com.example.sakila.services.FilmServices;
+import com.example.sakila.services.interfaces.FilmServices;
 
 import java.util.List;
 

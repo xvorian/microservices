@@ -1,7 +1,7 @@
 package com.example.sakila.services.Impl;
 
 import com.example.sakila.model.Payment;
-import com.example.sakila.services.PaymentServices;
+import com.example.sakila.services.interfaces.PaymentServices;
 
 import java.util.List;
 

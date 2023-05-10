@@ -1,7 +1,7 @@
 package com.example.sakila.services.Impl;
 
 import com.example.sakila.model.Language;
-import com.example.sakila.services.LanguageServices;
+import com.example.sakila.services.interfaces.LanguageServices;
 
 import java.util.List;
 
