@@ -1,10 +1,12 @@
 package com.example.sakila.controller;
 
 import com.example.sakila.model.Actor;
+import com.example.sakila.response.ResponseHandler;
 import com.example.sakila.services.ActorServices;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,17 +21,17 @@ public class ActorController {
     private ActorServices services;
 
     @GetMapping
-    public List<Actor> getAllActor() {
-        return services.findAll();
+    public ResponseEntity<Object> getAllActor() {
+        return ResponseHandler.responseBuilder("Returning all Actors", HttpStatus.OK, services.findAll());
     }
 
     @GetMapping("/{id}")
-    @ApiOperation(value="Actor Id", notes="Provides Actor based on Actor Id", response = Actor.class)
-    public Actor getById(@PathVariable(value = "id") Integer id) {
-        return services.findById(id);
+    @ApiOperation(value = "Actor Id", notes = "Provides Actor based on Actor Id", response = Actor.class)
+    public ResponseEntity<Object> getById(@PathVariable(value = "id") Integer id) {
+        return ResponseHandler.responseBuilder("Requested Actor Details", HttpStatus.OK, services.findById(id));
     }
 
-    @GetMapping(value="/byname")
+    @GetMapping(value = "/byname")
     public Actor getByFirstName(@RequestParam(value = "name") String fname) {
         return services.findByFirstName(fname).get();
     }
