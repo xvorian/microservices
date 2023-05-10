@@ -6,7 +6,10 @@ import com.example.sakila.repos.ActorRepository;
 import com.example.sakila.services.ActorServices;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -44,15 +47,29 @@ public class ActorServicesImpl implements ActorServices {
     }
 
     @Override
-    public Actor addActor(Actor actor) {
-        if (repo.findActorByFirstName(actor.getFirstName()).isPresent()) {
-            throw new IllegalStateException("Actor already present");
-        }
+    public Actor saveActor(Actor actor) {
         return repo.save(actor);
     }
 
     @Override
-    public Actor findByName(String firstName, String lastName) {
-        return new Actor();
+    public Actor updateActor(Actor actor) {
+        return repo.save(actor);
+    }
+
+    @Override
+    public String deleteActor(Actor actor) {
+        repo.delete(actor);
+        return "Deleted Successfully";
+    }
+
+    @Override
+    @Transactional
+    public Integer updateActorName(Actor actor) {
+        return repo.updateActorName(actor.getActorId(),actor.getFirstName());
+    }
+
+    @Override
+    public Actor findByName(Actor actor) {
+        return repo.findByName(actor.getFirstName(), actor.getLastName());
     }
 }

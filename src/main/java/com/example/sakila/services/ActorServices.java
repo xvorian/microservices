@@ -11,8 +11,14 @@ public interface ActorServices {
     public Optional<Actor> findByFirstName(String fName);
     public Optional<Actor> findByLastName(String lName);
 
-    public Actor findByName(String firstName, String lastName);
+    Actor findByName(Actor actor);
 
-    public Actor addActor(Actor actor);
+    public Actor saveActor(Actor actor);
+
+    public Actor updateActor(Actor actor);
+
+    public String deleteActor(Actor actor);
+
+    public Integer updateActorName(Actor actor);
 
 }

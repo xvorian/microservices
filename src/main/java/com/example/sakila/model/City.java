@@ -25,6 +25,10 @@ public class City implements Serializable {
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
 
+
+//    @ManyToOne
+//    private Country country;
+
     public Integer getCityId() {
         return this.cityId;
     }

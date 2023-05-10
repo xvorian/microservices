@@ -1,6 +1,9 @@
 package com.example.sakila.model;
 
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -36,10 +39,12 @@ public class Customer implements Serializable {
     @Column(name = "active", columnDefinition = "BIT")
     private Byte active;
 
+    @CreationTimestamp
     @Column(name = "create_date")
     private LocalDateTime createDate;
 
     @Column(name = "last_update")
+    @UpdateTimestamp
     private LocalDateTime lastUpdate;
 
     public Integer getCustomerId() {
@@ -112,5 +117,31 @@ public class Customer implements Serializable {
 
     public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public Customer(Integer customerId, Integer storeId, String firstName, String lastName, String email, Integer addressId, Byte active, LocalDateTime createDate, LocalDateTime lastUpdate) {
+        this.customerId = customerId;
+        this.storeId = storeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.addressId = addressId;
+        this.active = active;
+        this.createDate = createDate;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public Customer(Integer storeId, String firstName, String lastName, String email, Integer addressId, Byte active, LocalDateTime createDate, LocalDateTime lastUpdate) {
+        this.storeId = storeId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.addressId = addressId;
+        this.active = active;
+        this.createDate = createDate;
+        this.lastUpdate = lastUpdate;
+    }
+
+    public Customer() {
     }
 }

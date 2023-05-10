@@ -1,7 +1,7 @@
 package com.example.sakila.controller;
 
 import com.example.sakila.model.Actor;
-import com.example.sakila.response.ResponseHandler;
+import com.example.sakila.helper.ResponseHandler;
 import com.example.sakila.services.ActorServices;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
@@ -9,9 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/actor")
@@ -31,14 +28,19 @@ public class ActorController {
         return ResponseHandler.responseBuilder("Requested Actor Details", HttpStatus.OK, services.findById(id));
     }
 
-    @GetMapping(value = "/byname")
-    public Actor getByFirstName(@RequestParam(value = "name") String fname) {
-        return services.findByFirstName(fname).get();
+    @GetMapping(value = "/name")
+    public Actor getActorByName(@RequestParam(value = "firstname") String firstname, @RequestParam(value = "lastname") String lastname) {
+        return services.findByName(new Actor(firstname, lastname));
     }
 
     @PostMapping
-    public Actor addActor(@RequestBody Actor actor) {
-        return services.addActor(actor);
+    public ResponseEntity<Object> addActor(@RequestBody Actor actor) {
+        return ResponseHandler.responseBuilder("Actor Updated", HttpStatus.CREATED, services.saveActor(actor));
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<Object> updateActorDetails(@PathVariable(value = "id") Integer id, @RequestBody Actor actor) {
+        actor.setActorId(id);
+        return ResponseHandler.responseBuilder("Actor Details Updated", HttpStatus.OK, services.updateActorName(actor));
+    }
 }

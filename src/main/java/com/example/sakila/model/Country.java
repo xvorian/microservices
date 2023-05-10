@@ -5,6 +5,8 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "country")
@@ -20,6 +22,9 @@ public class Country implements Serializable {
 
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
+
+//    @OneToMany(mappedBy = "country" , cascade = CascadeType.ALL)
+//    private List<City> cityList = new ArrayList<>();
 
     public Integer getCountryId() {
         return this.countryId;

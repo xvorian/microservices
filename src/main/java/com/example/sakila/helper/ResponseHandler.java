@@ -1,4 +1,4 @@
-package com.example.sakila.response;
+package com.example.sakila.helper;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
